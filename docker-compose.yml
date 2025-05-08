@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB:       ${DB_NAME}
+      POSTGRES_USER:     ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:  
+      - "5432:5432"
+
+  web:
+     build: .
+     env_file:
+      - .env                     # ← load SECRET_KEY, DEBUG, DB_*, -> USE .ENV IN PROD DON'T PLACE HERE STANDALONE VALUES FOR DB CRED.
+     command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             python manage.py runserver 0.0.0.0:8000"
+     volumes:
+      - .:/app
+     ports:
+      - "8000:8000"
+     depends_on:
+      - db
+
+volumes:
+  db_data: 

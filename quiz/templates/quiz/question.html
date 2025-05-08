@@ -1,0 +1,21 @@
+<h2>Question {{ num }} of {{ total }}</h2>
+<p>{{ text }}</p>
+<form method="post">{% csrf_token %}
+  {% for idx, opt in options %}
+    <label>
+      <input type="radio" name="choice" value="{{ idx }}" required> {{ opt }}
+    </label><br>
+  {% endfor %}
+  <button type="submit">Submit</button>
+</form>
+<p>Score: {{ score }}</p>
+<p>Time left: <span id="timer">{{ timer }}</span>s</p>
+<script>
+let timeLeft = {{ timer }};
+const timerEl = document.getElementById('timer');
+const interval = setInterval(() => {
+  timeLeft--;
+  timerEl.textContent = timeLeft;
+  if (timeLeft <= 0) { clearInterval(interval); document.forms[0].submit(); }
+}, 1000);
+</script>

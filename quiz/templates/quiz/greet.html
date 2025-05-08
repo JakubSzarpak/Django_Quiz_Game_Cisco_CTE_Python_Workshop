@@ -1,0 +1,11 @@
+
+<h1>Welcome, {{ name }}!</h1>
+
+<p>Ready for a quick quiz?</p>
+
+<form method="post">{% csrf_token %}
+  
+  <button type="submit" name="confirm" value="yes">Yes</button>
+  <button type="submit" name="confirm" value="no">No</button>
+
+</form>

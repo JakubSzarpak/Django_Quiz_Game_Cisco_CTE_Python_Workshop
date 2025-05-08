@@ -1,0 +1,7 @@
+{% if abort %}
+  <p>Maybe next time...</p>
+{% else %}
+  <h1>Thanks, {{ name }}!</h1>
+  <p>Your final score is: {{ score }}</p>
+  <a href="{% url 'quiz' %}?redo=1">Play again</a>
+{% endif %}
