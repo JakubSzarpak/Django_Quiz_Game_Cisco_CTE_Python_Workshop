@@ -3,7 +3,6 @@
 <br><br><br>
 A quiz game made in Python that started with some simple requirements, but I spiced it up by running it inside a Docker Compose cluster (Django container, Postgres container), adding a Django-based UI refurbished from one of my other projects and connecting user–script-database communication to a PostgreSQL database. 
 
-
 <br>
 <h3 align="left">Languages and Tools used in this project:</h3>
 <p align="left">
