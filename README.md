@@ -16,4 +16,4 @@ A quiz game made in Python that started with some simple requirements, but I spi
 </p>
 
 <br>
-![Topology_overview_update1](https://github.com/user-attachments/assets/1246fc8a-6544-4e2c-b245-cb52ef6e0c31)
+
